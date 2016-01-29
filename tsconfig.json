@@ -1,0 +1,12 @@
+{
+  "compilerOptions": {
+    "target": "es6",
+    "inlineSourceMap": true,
+    "moduleResolution": "node",
+    "module": "commonjs"
+  },
+  "exclude": [
+    "node_modules",
+    "typings"
+  ]
+}

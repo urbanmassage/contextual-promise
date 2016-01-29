@@ -1,0 +1,16 @@
+{
+  "name": "contextual-promise",
+  "version": "0.0.1",
+  "description": "ES6 Promises with context support",
+  "main": "lib/index.js",
+  "scripts": {
+    "build": "tsc -p .",
+    "preversion": "npm run build",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "typescript": "^1.7.5"
+  }
+}
