@@ -1,22 +1,47 @@
 {
   "name": "contextual-promise",
-  "version": "0.0.1",
+  "version": "0.0.0",
   "description": "ES6 Promises with context support",
   "main": "lib/index.js",
   "scripts": {
     "build": "tsc -p .",
-    "preversion": "npm run build",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "mocha",
+    "coverage": "istanbul cover _mocha --",
+    "postcoverage": "if [ -f coverage/lcov.info ]; then node node_modules/.bin/map-coverage && mv coverage/lcov.info coverage/lcov-raw.info && mv coverage/lcov-mapped.info coverage/lcov.info; fi",
+    "sendcoverage": "if [ -f coverage/lcov.info ]; then cat ./coverage/lcov.info | ./node_modules/codecov.io/bin/codecov.io.js; fi",
+    "preversion": "npm run build && npm run test -- --bail",
+    "postversion": "git push --follow-tags",
+    "postinstall": "[ $(node_modules/.bin/typings -v) ] && typings install || true"
   },
-  "author": "",
+  "author": "Louay Alakkad <louay@alakkad.me>",
   "license": "ISC",
   "devDependencies": {
     "chai": "^3.5.0",
+    "codecov.io": "^0.1.6",
+    "istanbul": "^0.4.2",
+    "map-coverage": "0.0.3",
     "mocha": "^2.4.5",
     "source-map-support": "^0.4.0",
-    "typescript": "^1.7.5"
+    "typescript": "^1.7.5",
+    "typings": "^0.6.4"
   },
   "dependencies": {
     "es6-promise": "^3.0.2"
-  }
+  },
+  "directories": {
+    "test": "test"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/urbanmassage/contextual-promise.git"
+  },
+  "keywords": [
+    "promise",
+    "context",
+    "closure"
+  ],
+  "bugs": {
+    "url": "https://github.com/urbanmassage/contextual-promise/issues"
+  },
+  "homepage": "https://github.com/urbanmassage/contextual-promise#readme"
 }

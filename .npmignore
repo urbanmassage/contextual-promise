@@ -1,2 +1,9 @@
-typings/
 node_modules/
+coverage/
+typings/
+*.log
+
+.gitignore
+test/
+app.d.ts
+tsconfig.json

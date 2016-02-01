@@ -1,0 +1,17 @@
+language: node_js
+node_js:
+- '4.1'
+- '4.0'
+- '0.12'
+script:
+- npm run build
+- npm test
+after_success:
+- test $TRAVIS_NODE_VERSION = "4.1" && npm run coverage && npm run sendcoverage
+deploy:
+  provider: npm
+  on:
+    node: '4.1'
+    tags: true
+    repo: urbanmassage/contextual-promise
+  skip_cleanup: true
