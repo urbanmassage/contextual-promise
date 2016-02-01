@@ -1,6 +1,6 @@
 {
   "name": "contextual-promise",
-  "version": "0.0.0",
+  "version": "0.1.0",
   "description": "ES6 Promises with context support",
   "main": "lib/index.js",
   "scripts": {
